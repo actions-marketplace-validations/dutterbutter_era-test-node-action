@@ -1,5 +1,10 @@
 # Era Test Node Action 🚀
 
+### ⚠️ Warning
+
+This action has been **archived** in favor of [`anvil-zksync-action`](https://github.com/dutterbutter/anvil-zksync-action).  
+By default, this action fetches version `v0.1.0-alpha.36` of `era-test-node` unless a different tag is specified, as this was the last release before the binary was renamed. Tags past this may not work given the binary difference.
+
 ## Description
 
 This GitHub Action runs the [`era_test_node`](https://github.com/matter-labs/era-test-node) with various options. It allows for high configurability and makes it easy to integrate `era_test_node` into your CI/CD workflows on GitHub Actions.
@@ -15,7 +20,7 @@ This GitHub Action runs the [`era_test_node`](https://github.com/matter-labs/era
 - Enable hash resolution.
 - Configurable logging options.
 - Support for different target architectures.
-- Ability to specify the version of `era_test_node`.
+- Ability to specify the release tag of `era_test_node`.
 
 ## Inputs 🛠
 
@@ -107,12 +112,12 @@ Target architecture.
 - **Default**: `x86_64-unknown-linux-gnu`
 - **Options**: `x86_64-unknown-linux-gnu`, `x86_64-apple-darwin`, `aarch64-apple-darwin`
 
-### `version`
+### `releaseTag`
 
-Version of `era_test_node` to use.
+Release tag of `era_test_node` to use.
 
 - **Required**: No
-- **Default**: `v0.1.0-alpha.3`
+- **Default**: `latest`
 
 ## Example Usage 📝
 
@@ -166,7 +171,7 @@ jobs:
         log: 'info'
         logFilePath: 'era_test_node.log'
         target: 'x86_64-unknown-linux-gnu'
-        version: 'v0.1.0-alpha.3'
+        releaseTag: 'latest'
 ```
 
 ### Upload log file to artifacts
@@ -204,7 +209,7 @@ jobs:
         log: 'info'
         logFilePath: 'era_test_node.log'
         target: 'x86_64-unknown-linux-gnu'
-        version: 'v0.1.0-alpha.3'
+        releaseTag: 'latest'
 
     - name: Install Dependencies
       run: yarn install
@@ -251,7 +256,7 @@ jobs:
         log: 'info'
         logFilePath: 'era_test_node.log'
         target: 'x86_64-unknown-linux-gnu'
-        version: 'v0.1.0-alpha.3'
+        releaseTag: 'latest'
 ```
 
 ## Contributing 🤝
